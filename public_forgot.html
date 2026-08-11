@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Forgot password</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <h1>Forgot Password</h1>
+  <form id="forgot">
+    <input type="email" id="email" placeholder="Email" required/><br/>
+    <div class="g-recaptcha" data-sitekey="RECAPTCHA_SITE_KEY_REPLACE"></div>
+    <br/>
+    <button type="submit">Send reset link</button>
+  </form>
+  <div id="message"></div>
+
+  <script>
+  document.getElementById('forgot').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const recaptchaToken = grecaptcha && grecaptcha.getResponse ? grecaptcha.getResponse() : '';
+    const res = await fetch('/api/auth/forgot', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, recaptchaToken })
+    });
+    const json = await res.json();
+    document.getElementById('message').innerText = json.message || JSON.stringify(json);
+  });
+  </script>
+</body>
+</html>
