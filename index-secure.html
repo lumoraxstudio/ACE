@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AuraCoreEsports - Where Champions Rise. Competitive gaming excellence.">
+    <meta name="theme-color" content="#00d4ff">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https:; connect-src 'self' https://api.auracoresports.com">
+    <title>AuraCoreEsports - Competitive Gaming Excellence</title>
+    <link rel="stylesheet" href="styles-secure.css">
+</head>
+<body>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="">
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="AuraCoreEsports Logo">
+                        <circle cx="16" cy="16" r="15" stroke="#00d4ff" stroke-width="2"/>
+                        <path d="M10 16L14 20L22 12" stroke="#00d4ff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    AuraCore<span class="esports">Esports</span>
+                </div>
+                <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="navLinks">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="navLinks" role="menubar">
+                    <li><a href="#home" role="menuitem">Home</a></li>
+                    <li><a href="#team" role="menuitem">Team</a></li>
+                    <li><a href="#games" role="menuitem">Games</a></li>
+                    <li><a href="#news" role="menuitem">News</a></li>
+                    <li id="authMenu"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal" role="dialog" aria-labelledby="authTitle">
+        <div class="modal-content">
+            <span class="close" id="closeModal" aria-label="Close modal">&times;</span>
+            <h2 id="authTitle">Sign In</h2>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required aria-required="true">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+
+            <div class="auth-toggle">
+                <p>Don't have an account? <a href="#" id="toggleRegister">Create one</a></p>
+            </div>
+
+            <!-- Register Form (Hidden) -->
+            <form id="registerForm" class="auth-form hidden">
+                <div class="form-group">
+                    <label for="regUsername">Username</label>
+                    <input type="text" id="regUsername" name="username" required pattern="^[a-zA-Z0-9_-]{3,30}$" aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" name="email" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" name="password" required aria-required="true">
+                    <small>Min 12 chars, uppercase, lowercase, number, special char</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+
+            <div class="auth-toggle">
+                <p>Already have an account? <a href="#" id="toggleLogin">Sign in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">AuraCoreEsports</h1>
+                <p class="hero-subtitle">Where Champions Rise</p>
+                <p class="hero-description">Competitive gaming excellence at its finest.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openAuthModal()">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <div id="teamContainer" class="team-grid"></div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            <div id="newsContainer" class="news-grid"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 AuraCoreEsports. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="secure-app.js"></script>
+</body>
+</html>
