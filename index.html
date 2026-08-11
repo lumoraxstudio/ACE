@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ACE — Aura Core Esports | Premium 3D Esports Platform</title>
+    <meta name="description" content="Aura Core Esports — Let's make it together. Premium 3D esports tournaments and gaming community platform." />
+    <link rel="icon" type="image/svg+xml" href="/ace-favicon.svg" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-black: #0a0a0a;
+            --color-graphite: #1a1a1a;
+            --color-navy: #0f1b2e;
+            --color-cyan: #00d9ff;
+            --color-violet: #a855f7;
+            --color-magenta: #ff006e;
+            --color-white: #ffffff;
+            --font-primary: 'Orbitron', 'Rajdhani', 'Exo', monospace;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: var(--color-black);
+            color: var(--color-white);
+            font-family: var(--font-primary);
+            overflow-x: hidden;
+        }
+
+        #root {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Loading Screen */
+        .ace-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ace-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .ace-logo-loader {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--color-cyan), var(--color-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse-glow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.8));
+            }
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 2px;
+            background: rgba(0, 217, 255, 0.2);
+            border-radius: 1px;
+            overflow: hidden;
+        }
+
+        .loader-bar::after {
+            content: '';
+            display: block;
+            height: 100%;
+            width: 30%;
+            background: linear-gradient(90deg, transparent, var(--color-cyan), transparent);
+            animation: slide 1.5s infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(400%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="ace-loader" id="aceLoader">
+        <div class="ace-logo-loader">⚡ ACE</div>
+        <div class="loader-bar"></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
