@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './sections/Hero';
 import TournamentPreview from './sections/TournamentPreview';
@@ -8,6 +7,7 @@ import AceCore from './sections/AceCore';
 import CommunitySection from './sections/CommunitySection';
 import EsportsHUD from './sections/EsportsHUD';
 import SocialHub from './sections/SocialHub';
+import ContactSection from './sections/ContactSection';
 import FinalCTA from './sections/FinalCTA';
 import Footer from './components/Footer';
 
@@ -37,6 +37,7 @@ function App() {
       <CommunitySection />
       <EsportsHUD />
       <SocialHub />
+      <ContactSection />
       <FinalCTA />
       <Footer />
     </div>
