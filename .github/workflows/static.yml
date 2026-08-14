@@ -4,8 +4,8 @@ name: Deploy ACE to GitHub Pages
 
 permissions:
   contents: read
-    pages: write
-      id-token: write
+  pages: write
+  id-token: write
 
       jobs:
         build:
